@@ -9,7 +9,6 @@
 
 import Data.List
 import Data.Char
-import System.Directory
 
 
 type Sudoku = [[Int]]
@@ -18,7 +17,7 @@ type Sudoku = [[Int]]
 sudoku :: Sudoku 
 
 --Formato de Entrada:
---[[5,3,,,7,,,,,],[6,,,1,9,5,,,,],[,9,8,,,,,6,],[8,,,,6,,,,3],[4,,8,,3,,,1],[7,,,,2,,,,6],[,6,,,,,2,8,],[,,,4,1,9,,,5],[,,,,8,,,7,9]]
+--[[5,3,0,0,7,0,0,0,0,0],[6,0,0,1,9,5,0,0,0,0],[0,9,8,0,0,0,0,6,0],[8,0,0,0,6,0,0,0,3],[4,0,8,0,3,0,0,1],[7,0,0,0,2,0,0,0,6],[,6,0,0,0,0,2,8,],[0,0,0,4,1,9,0,0,5],[0,0,0,0,8,0,0,7,9]]
 
 sudoku =[ [5,3,0,    0,7,0,    0,0,0],
           [6,0,0,    1,9,5,    0,0,0],
@@ -192,6 +191,7 @@ mostraSolucao solucoes =
     else putStr (sudokuToString (head solucoes) 0 0 "")
 
 main = do
+    entrada_string <- getLine
     mostraSolucao (solucionar sudoku)
 
     
